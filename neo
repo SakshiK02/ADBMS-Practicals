@@ -1,0 +1,21 @@
+CREATE(:Product{name:"tomato"})
+
+MATCH(product :Product{name: "tomato"})
+MATCH(store :Store {name:"ALDI"})
+MERGE(product)-[:LOCATED_AT]->(store)
+
+MATCH(product :Product{name: "potato"})
+MATCH(store :Store {name:"WholeFood"})
+MERGE(product)-[:LOCATED_AT]->(store)
+
+MATCH(product :Product{name: "bread"})
+MATCH(store :Store {name:"AmazonFresh"})
+MERGE(product)-[:LOCATED_AT]->(store)
+
+MATCH(product :Product{name: "nootebook"})
+MATCH(store :Store {name:"OfficeDepot"})
+MERGE(product)-[:LOCATED_AT]->(store)
+
+MATCH(product :Product{name: "tomato"})
+MATCH(person :Person {name:"You"})
+MERGE(person)-[:BOUGHT_A]->(product)
